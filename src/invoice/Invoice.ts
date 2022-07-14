@@ -6,7 +6,7 @@ import InvoiceLine from "./InvoiceLine";
 export default class Invoice {
   private invoiceDate: Date;
   private invoiceNumber: string;
-  public lineItems: any[];
+  public lineItems: InvoiceLine[];
 
   constructor(invoiceDate = new Date(), invoiceNumber = "", lineItems = []) {
     this.invoiceDate = invoiceDate;
@@ -21,16 +21,16 @@ export default class Invoice {
 
   // Removes a line
   removeInvoiceLine(id: number) {
-    return null;
+    this.lineItems = this.lineItems?.filter(
+      (item) => item.invoiceLineId !== id
+    );
   }
 
   getTotal() {
-    return 0;
+    return this.lineItems.reduce((acc, item) => acc + item.cost, 0);
   }
 
-  mergeInvoices(invoice: Invoice) {
-    return null;
-  }
+  mergeInvoices(invoice: Invoice) {}
 
   clone() {
     return new Invoice(this.invoiceDate, this.invoiceNumber, this.lineItems);
