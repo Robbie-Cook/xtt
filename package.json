@@ -1,0 +1,22 @@
+{
+  "name": "xtt",
+  "version": "1.0.0",
+  "description": "A small example code application",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Robbie-Cook/xtt.git"
+  },
+  "author": "Robbie Cook <robbieck7@gmail.com>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/Robbie-Cook/xtt/issues"
+  },
+  "homepage": "https://github.com/Robbie-Cook/xtt#readme",
+  "dependencies": {
+    "ts-node": "^10.9.0"
+  }
+}

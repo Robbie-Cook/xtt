@@ -1,4 +1,3 @@
-
 /*
     Welcome to the Xero technical exercise!
     ---------------------------------------------------------------------------------
@@ -19,81 +18,76 @@
     When you have finished the solution please zip it up and email it back to the recruiter or developer who sent it to you
 */
 
-const Invoice = require('./invoice.js');
-const InvoiceLine = require('./invoiceLine.js');
+const Invoice = require("./invoice.js");
+const InvoiceLine = require("./invoiceLine.js");
 
 function main() {
-    console.log("Welcome to Xero Tech Test!");
+  console.log("Welcome to Xero Tech Test!");
 
-    createInvoiceWithOneItem();
-    createInvoiceWithMultipleItemsAndQuantities();
-    removeItem();
-    mergeInvoices();
-    cloneInvoice();
-    invoiceToString();
+  createInvoiceWithOneItem();
+  createInvoiceWithMultipleItemsAndQuantities();
+  removeItem();
+  mergeInvoices();
+  cloneInvoice();
+  invoiceToString();
 }
 
 function createInvoiceWithOneItem() {
-    const invoice = new Invoice();
-    invoice.addInvoiceLine(new InvoiceLine(1, 6.99, 1, "Apple"));
-    console.log(invoice.lineItems);
+  const invoice = new Invoice();
+  invoice.addInvoiceLine(new InvoiceLine(1, 6.99, 1, "Apple"));
+  console.log(invoice.lineItems);
 }
 
-function createInvoiceWithMultipleItemsAndQuantities () {
-    const invoice = new Invoice();
-    invoice.addInvoiceLine(new InvoiceLine(1, 10.21, 4, "Banana"));
-    invoice.addInvoiceLine(new InvoiceLine(2, 5.21, 1, "Orange" ));
-    invoice.addInvoiceLine(new InvoiceLine(3, 6.21, 5, "Pineapple"));
-    console.log(invoice.getTotal());
+function createInvoiceWithMultipleItemsAndQuantities() {
+  const invoice = new Invoice();
+  invoice.addInvoiceLine(new InvoiceLine(1, 10.21, 4, "Banana"));
+  invoice.addInvoiceLine(new InvoiceLine(2, 5.21, 1, "Orange"));
+  invoice.addInvoiceLine(new InvoiceLine(3, 6.21, 5, "Pineapple"));
+  console.log(invoice.getTotal());
 }
 
 function removeItem() {
-    const invoice = new Invoice();
+  const invoice = new Invoice();
 
-    invoice.addInvoiceLine(new InvoiceLine(1, 10.21, 1, "Orange"));
-    invoice.addInvoiceLine(new InvoiceLine(2, 10.99, 5, "Banana"));
+  invoice.addInvoiceLine(new InvoiceLine(1, 10.21, 1, "Orange"));
+  invoice.addInvoiceLine(new InvoiceLine(2, 10.99, 5, "Banana"));
 
-    invoice.removeInvoiceLine(1);
+  invoice.removeInvoiceLine(1);
 
-    console.log(invoice.getTotal());
+  console.log(invoice.getTotal());
 }
 
 function mergeInvoices() {
-    const invoice1 = new Invoice();
+  const invoice1 = new Invoice();
 
-    invoice1.addInvoiceLine(new InvoiceLine(1, 10.21, 1, "Blueberries"));
+  invoice1.addInvoiceLine(new InvoiceLine(1, 10.21, 1, "Blueberries"));
 
-    const invoice2 = new Invoice();
+  const invoice2 = new Invoice();
 
-    invoice2.addInvoiceLine(new InvoiceLine(2, 5.29, 4, "Orange"));
-    invoice2.addInvoiceLine(new InvoiceLine(3, 9.99, 1, "Banana"));
+  invoice2.addInvoiceLine(new InvoiceLine(2, 5.29, 4, "Orange"));
+  invoice2.addInvoiceLine(new InvoiceLine(3, 9.99, 1, "Banana"));
 
-    invoice1.mergeInvoices(invoice2);
+  invoice1.mergeInvoices(invoice2);
 
-    console.log(invoice1.getTotal());
+  console.log(invoice1.getTotal());
 }
 
 function cloneInvoice() {
-    const invoice = new Invoice();
+  const invoice = new Invoice();
 
-    invoice.addInvoiceLine(new InvoiceLine(1, 0.99, 5, "Onion"));
-    invoice.addInvoiceLine(new InvoiceLine(2, 10.49, 2, "Watermelon"));
+  invoice.addInvoiceLine(new InvoiceLine(1, 0.99, 5, "Onion"));
+  invoice.addInvoiceLine(new InvoiceLine(2, 10.49, 2, "Watermelon"));
 
-    const clonedInvoice = invoice.clone();
-    console.log(clonedInvoice.getTotal());
+  const clonedInvoice = invoice.clone();
+  console.log(clonedInvoice.getTotal());
 }
 
 function invoiceToString() {
-    const invoice = new Invoice(
-        new Date(),
-        "1000",
-        [
-            new InvoiceLine(1, 1.99, 20, "Peer")
-        ]
-    );
+  const invoice = new Invoice(new Date(), "1000", [
+    new InvoiceLine(1, 1.99, 20, "Peer"),
+  ]);
 
-    console.log(invoice);
+  console.log(invoice);
 }
-
 
 main();
