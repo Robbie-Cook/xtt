@@ -1,9 +1,12 @@
-import InvoiceLine from "./invoiceLine";
+import InvoiceLine from "./InvoiceLine";
 
+/**
+ * A class that represents an invoice.
+ */
 export default class Invoice {
-  invoiceDate: Date;
-  invoiceNumber: string;
-  lineItems: any[];
+  private invoiceDate: Date;
+  private invoiceNumber: string;
+  public lineItems: any[];
 
   constructor(invoiceDate = new Date(), invoiceNumber = "", lineItems = []) {
     this.invoiceDate = invoiceDate;
