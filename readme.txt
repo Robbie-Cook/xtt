@@ -1,12 +1,9 @@
+# Instructions
 
+## Install
 
-XeroTechnicalTest consists of a Node.js console application.
+`npm i`
 
-Notes:
-- This project requires Node v6 or higher.
-- Feel free to use ES6 syntax
+## Run
 
-Instructions for test are listed in the comments at the top of index.js.
-
-Good luck!
-
+`npm run start`
