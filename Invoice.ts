@@ -1,4 +1,10 @@
-class Invoice {
+import InvoiceLine from "./invoiceLine";
+
+export default class Invoice {
+  invoiceDate: Date;
+  invoiceNumber: string;
+  lineItems: any[];
+
   constructor(invoiceDate = new Date(), invoiceNumber = "", lineItems = []) {
     this.invoiceDate = invoiceDate;
     this.invoiceNumber = invoiceNumber;
@@ -6,12 +12,12 @@ class Invoice {
   }
 
   // Adds a line to invoice
-  addInvoiceLine(line) {
+  addInvoiceLine(line: InvoiceLine) {
     this.lineItems.push(line);
   }
 
   // Removes a line
-  removeInvoiceLine(id) {
+  removeInvoiceLine(id: number) {
     return null;
   }
 
@@ -19,7 +25,7 @@ class Invoice {
     return 0;
   }
 
-  mergeInvoices() {
+  mergeInvoices(invoice: Invoice) {
     return null;
   }
 
@@ -27,5 +33,3 @@ class Invoice {
     return new Invoice(this.invoiceDate, this.invoiceNumber, this.lineItems);
   }
 }
-
-module.exports = Invoice;

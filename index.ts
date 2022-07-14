@@ -18,8 +18,8 @@
     When you have finished the solution please zip it up and email it back to the recruiter or developer who sent it to you
 */
 
-const Invoice = require("./invoice.js");
-const InvoiceLine = require("./invoiceLine.js");
+import Invoice from "./Invoice";
+import InvoiceLine from "./invoiceLine";
 
 function main() {
   console.log("Welcome to Xero Tech Test!");
